@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace RailsLocalesAuxilium
+namespace RailsLocalesAuxilium.Sources
 {
     public class CommandHandler : ICommand
     {

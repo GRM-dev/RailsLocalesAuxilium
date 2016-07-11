@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RailsLocalesAuxilium.Annotations;
+using RailsLocalesAuxilium.Sources;
 
 namespace RailsLocalesAuxilium
 {

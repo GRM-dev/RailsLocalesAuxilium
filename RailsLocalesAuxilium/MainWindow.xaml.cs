@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace RailsLocalesAuxilium
 {
@@ -39,16 +40,19 @@ namespace RailsLocalesAuxilium
             {
                 return;
             }
-            if (pageType == Instance._startPage.GetType())
+            Instance.Dispatcher.BeginInvoke((Action) (() =>
             {
-                Instance.MainFrame.Navigate(Instance._startPage);
-                Instance._startPage.OnNavigatedTo();
-            }
-            else if (pageType == Instance._mainPage.GetType())
-            {
-                Instance.MainFrame.Navigate(Instance._mainPage);
-                Instance._mainPage.OnNavigatedTo();
-            }
+                if (pageType == Instance._startPage.GetType())
+                {
+                    Instance.MainFrame.Navigate(Instance._startPage);
+                    Instance._startPage.OnNavigatedTo();
+                }
+                else if (pageType == Instance._mainPage.GetType())
+                {
+                    Instance.MainFrame.Navigate(Instance._mainPage);
+                    Instance._mainPage.OnNavigatedTo();
+                }
+            }));
         }
 
         public static MainWindow Instance { get; private set; }
