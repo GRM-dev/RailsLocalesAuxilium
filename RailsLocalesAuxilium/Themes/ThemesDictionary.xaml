@@ -12,5 +12,6 @@
         <ResourceDictionary Source="ShinyRed.xaml" />
         <ResourceDictionary Source="WhistlerBlue.xaml" />
         -->
+        <ResourceDictionary Source="RlaDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

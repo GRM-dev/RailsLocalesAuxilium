@@ -5,10 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RailsLocalesAuxilium"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="500"
       Title="MainPage">
 
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File" ></MenuItem>
+            <MenuItem Header="Edit" ></MenuItem>
+            <MenuItem Header="Project" ></MenuItem>
+        </Menu>
+        <StackPanel DockPanel.Dock="Left" Background="#FF250E0E" MinWidth="65">
+            <Button Content="Model" Style="{DynamicResource ProjectMainButton}" IsDefault="True"/>
+            <Button Content="Attributes"  Style="{DynamicResource ProjectMainButton}"/>
+            <Button Content="Controllers"  Style="{DynamicResource ProjectMainButton}"/>
+            <Button Content="View"  Style="{DynamicResource ProjectMainButton}"/>
+            <Button Content="Language"  Style="{DynamicResource ProjectMainButton}"/>
+        </StackPanel>
+        <Frame x:Name="ProjectFrame"/>
+    </DockPanel>
 </Page>
