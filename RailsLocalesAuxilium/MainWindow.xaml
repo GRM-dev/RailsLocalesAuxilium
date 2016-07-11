@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RailsLocalesAuxilium"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Rails Locales Auxilium" Height="350" Width="525" Icon="Resources/RubyOnRails.png">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.7,1" StartPoint="0,0">
+            <GradientStop Color="#FF1D0808" Offset="1"/>
+            <GradientStop Color="#FF872525" Offset="0.46"/>
+            <GradientStop Color="#FF5B3030"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
