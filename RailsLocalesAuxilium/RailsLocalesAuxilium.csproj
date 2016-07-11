@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -70,7 +71,7 @@
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sources\Config.cs" />
-    <Compile Include="Sources\ProjectHandler.cs" />
+    <Compile Include="Sources\Project.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -33,13 +34,22 @@ namespace RailsLocalesAuxilium
             
         }
 
-        public void OpenNewProject(string path)
+
+        public void OpenProject(Project project=null)
         {
-             Project = ProjectHandler.CreateProject(path);
+            if (project != null)
+            {
+                Debug.WriteLine("Opening project: " + project.Path);
+                Project = project;
+            }
+            if (Project != null)
+            {
+                MainWindow.NavigateTo(typeof(MainPage));
+            }
         }
 
-        public ProjectHandler Project { get; set; }
+        public Project Project { get; set; }
 
         public static MainPage Instance { get; private set; }
-    }
+        }
 }

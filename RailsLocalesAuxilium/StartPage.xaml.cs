@@ -38,7 +38,14 @@ namespace RailsLocalesAuxilium
 
         public void OnNavigatedTo()
         {
-            ProjectsPanel.Children.Add(new ExistingProjectButton("Project 1", null));
+            foreach (var project in Config.Instance.Projects)
+            {
+                Uri uri;
+                if (Uri.TryCreate(project.Path, UriKind.RelativeOrAbsolute, out uri))
+                {
+                    ProjectsPanel.Children.Add(new ExistingProjectButton(project));
+                }
+            }
         }
 
         private void OpenNewProject()
@@ -55,7 +62,7 @@ namespace RailsLocalesAuxilium
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {
                     var path = dialog.SelectedPath;
-                    Uri uri = null;
+                    Uri uri;
                     if (string.IsNullOrEmpty(path) || !Uri.TryCreate(path, UriKind.Absolute, out uri))
                     {
                         if (ShowDirDialogAgain()) { continue; }
@@ -67,7 +74,7 @@ namespace RailsLocalesAuxilium
                         var goodDir = false;
                         foreach (var entry in Directory.EnumerateFileSystemEntries(path))
                         {
-                            if (DirRequirements.Contains(entry.Substring(entry.LastIndexOf("\\", StringComparison.Ordinal)+1)))
+                            if (DirRequirements.Contains(entry.Substring(entry.LastIndexOf("\\", StringComparison.Ordinal) + 1)))
                             {
                                 reqs[i++] = true;
                             }
@@ -82,7 +89,8 @@ namespace RailsLocalesAuxilium
                             if (ShowDirDialogAgain()) { continue; }
                         }
                         Debug.WriteLine("Appropriate dir selected");
-                        if (!Uri.TryCreate(path=(path + "\\config\\locales"), UriKind.RelativeOrAbsolute, out uri))
+                        var name = path.Substring(path.LastIndexOf("\\", StringComparison.Ordinal) + 1).Trim('\\');
+                        if (!Uri.TryCreate(path = (path + "\\config\\locales"), UriKind.RelativeOrAbsolute, out uri))
                         {
                             if (ShowDirDialogAgain())
                             {
@@ -93,8 +101,8 @@ namespace RailsLocalesAuxilium
                         {
                             Task.Run(() =>
                             {
-                                MainWindow.NavigateTo(typeof(MainPage));
-                                MainPage.Instance.OpenNewProject(path);
+                                var p = Project.CreateProject(name, path);
+                                MainPage.Instance.OpenProject(p);
                             });
                         }
                     }
