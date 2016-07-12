@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RailsLocalesAuxilium.ProjectPages;
 using RailsLocalesAuxilium.Sources;
 
 namespace RailsLocalesAuxilium
@@ -51,5 +52,14 @@ namespace RailsLocalesAuxilium
 
         public Project Project { get; set; }
         public static MainPage Instance { get; private set; }
+
+        public void NavigateToPage(ProjectPage page)
+        {
+            if (page == null)
+            {
+                return;
+            }
+            ProjectFrame.Navigate(page);
+        }
     }
 }
