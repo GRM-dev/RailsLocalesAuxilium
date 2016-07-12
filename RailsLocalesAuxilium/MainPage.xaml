@@ -18,11 +18,11 @@
         <StackPanel DockPanel.Dock="Left" Background="#FF250E0E" MinWidth="65">
             <Label Content="Translations: " FontWeight="Bold" MinHeight="23" HorizontalContentAlignment="Center"/>
             <Button x:Name="PB_Model" Content="Model" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
-            <Button x:Name="PB_Attr" Content="Attributes"  Style="{DynamicResource ProjectMainButton}"/>
-            <Button x:Name="PB_Cont" Content="Controllers"  Style="{DynamicResource ProjectMainButton}"/>
-            <Button x:Name="PB_View" Content="View"  Style="{DynamicResource ProjectMainButton}"/>
-            <Button x:Name="PB_Lang" Content="Language"  Style="{DynamicResource ProjectMainButton}"/>
-            <Button x:Name="PB_Other" Content="Other"  Style="{DynamicResource ProjectMainButton}"/>
+            <Button x:Name="PB_Attr" Content="Attributes"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.AttributesCommand}"/>
+            <Button x:Name="PB_Cont" Content="Controllers"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ControllerCommand}"/>
+            <Button x:Name="PB_View" Content="View"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ViewCommand}"/>
+            <Button x:Name="PB_Lang" Content="Language"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LanguageCommand}"/>
+            <Button x:Name="PB_Other" Content="Other"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.OtherCommand}"/>
         </StackPanel>
         <Frame x:Name="ProjectFrame"/>
     </DockPanel>

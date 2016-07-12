@@ -36,9 +36,10 @@ namespace RailsLocalesAuxilium.Sources
             _action();
         }
 
-        public static RoutedCommand CreateHandlerWithBinding(Action action, Func<object, CanExecuteRoutedEventArgs, bool> canExecute, FrameworkElement assignablElement)
+        public static RoutedCommand CreateHandlerWithBinding(Action action, Func<object, CanExecuteRoutedEventArgs, bool> canExecute, FrameworkElement assignableElement)
         {
-            var cb = new CommandBinding(RoutedCommand, (sender, e) =>
+            var routedCommand = new RoutedCommand();
+            var cb = new CommandBinding(routedCommand, (sender, e) =>
             {
                 action();
             } , (sender, e) =>
@@ -46,11 +47,10 @@ namespace RailsLocalesAuxilium.Sources
                 var target = e.Source as Control;
                 e.CanExecute = target != null && canExecute(sender,e);
             });
-            assignablElement.CommandBindings.Add(cb);
-            return RoutedCommand;
+            assignableElement.CommandBindings.Add(cb);
+            return routedCommand;
         }
-
-        public static RoutedCommand RoutedCommand =new RoutedCommand();
+        
         public event EventHandler CanExecuteChanged;
     }
 }
