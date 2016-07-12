@@ -8,10 +8,10 @@
       d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance local:StartPage}" 
       Title="StartPage">
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top">
+        <StackPanel DockPanel.Dock="Top" Margin="0,25,0,0">
+            <Button Content="Load new Project" FontSize="21.333" Command="{Binding OpenNewProjectCommand}" HorizontalAlignment="Center"/>
+            <Label Content="or" HorizontalAlignment="Center" FontSize="21.333"/>
             <Label Content="Select Last Loaded Project" HorizontalAlignment="Center" FontSize="21.333" />
-            <Label Content=" or " HorizontalAlignment="Center" FontSize="21.333"/>
-            <Button Content="load another project ..." FontSize="21.333" Command="{Binding OpenNewProjectCommand}"/>
         </StackPanel>
         <WrapPanel x:Name="ProjectsPanel"/>
     </DockPanel>

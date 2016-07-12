@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RailsLocalesAuxilium.Sources;
 
 namespace RailsLocalesAuxilium.ProjectPages
 {
@@ -22,17 +23,23 @@ namespace RailsLocalesAuxilium.ProjectPages
     public abstract class ProjectPage : Page
     {
         private static Dictionary<Type, ProjectPage> _projectPages;
+        private static Project Project { get; set; }
+
+        public abstract void OnNavigatedTo();
 
         public static void NavigateTo(Type type)
         {
-            if (type == null || !type.IsSubclassOf(typeof(ProjectPage)) || MainPage.Instance == null)
+            if (type == null || !type.IsSubclassOf(typeof(ProjectPage)) || MainPage.Instance == null || !ProjectPages.ContainsKey(type))
             {
                 return;
             }
-            if (ProjectPages.ContainsKey(type))
+            if (Project == null || (MainPage.Instance.Project != null && MainPage.Instance.Project != Project))
             {
-                MainPage.Instance.NavigateToPage(ProjectPages[type]);
+                Project = MainPage.Instance.Project;
             }
+            var p = ProjectPages[type];
+            MainPage.Instance.NavigateToPage(p);
+            p.OnNavigatedTo();
         }
 
         private static Dictionary<Type, ProjectPage> ProjectPages

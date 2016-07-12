@@ -35,8 +35,7 @@ namespace RailsLocalesAuxilium
         {
 
         }
-
-
+        
         public void OpenProject(Project project = null)
         {
             if (project != null)
@@ -50,7 +49,7 @@ namespace RailsLocalesAuxilium
             }
         }
 
-        public Project Project { get; set; }
+        public Project Project { get; private set; }
         public static MainPage Instance { get; private set; }
 
         public void NavigateToPage(ProjectPage page)

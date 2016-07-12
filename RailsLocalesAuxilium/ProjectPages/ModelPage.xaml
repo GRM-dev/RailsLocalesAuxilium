@@ -8,8 +8,8 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="ModelPage">
 
-    <Grid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="126,125,0,0" VerticalAlignment="Top" Width="75"/>
+    <DockPanel>
+        <DataGrid></DataGrid>
 
-    </Grid>
+    </DockPanel>
 </local:ProjectPage>

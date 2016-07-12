@@ -24,5 +24,10 @@ namespace RailsLocalesAuxilium.ProjectPages
         {
             InitializeComponent();
         }
+
+        public override void OnNavigatedTo()
+        {
+            
+        }
     }
 }

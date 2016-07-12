@@ -26,7 +26,7 @@ namespace RailsLocalesAuxilium.Sources
 
         public static Project CreateProject(string name, string path)
         {
-            var files = Directory.EnumerateFiles(path).Where(file => file.Contains(".yml")).ToList();
+            var files = FileHelper.GetLocalesFiles(path);
             var p = new Project(name, path, files);
             Config.Instance.AddProject(p);
             return p;

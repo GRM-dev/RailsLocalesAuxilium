@@ -33,13 +33,13 @@ namespace RailsLocalesAuxilium
             InitializeComponent();
             DataContext = this;
             _canExecute = true;
-
         }
 
         public void OnNavigatedTo()
         {
             foreach (var project in Config.Instance.Projects)
             {
+                ProjectsPanel.Children.Clear();
                 Uri uri;
                 if (Uri.TryCreate(project.Path, UriKind.RelativeOrAbsolute, out uri))
                 {
@@ -90,7 +90,7 @@ namespace RailsLocalesAuxilium
                         }
                         Debug.WriteLine("Appropriate dir selected");
                         var name = path.Substring(path.LastIndexOf("\\", StringComparison.Ordinal) + 1).Trim('\\');
-                        if (!Uri.TryCreate(path = (path + "\\config\\locales"), UriKind.RelativeOrAbsolute, out uri))
+                        if (!Uri.TryCreate(path + "\\config\\locales", UriKind.RelativeOrAbsolute, out uri))
                         {
                             if (ShowDirDialogAgain())
                             {

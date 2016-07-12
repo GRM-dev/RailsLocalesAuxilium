@@ -14,10 +14,10 @@ namespace RailsLocalesAuxilium.Sources
 {
     public class Config
     {
-        private const string filename = "config.xml";
+        private const string Filename = "config.xml";
         private static Config _instance;
         private static XmlSerializer _ser;
-        private static object _serLock = new object();
+        private static readonly object SerializerLock = new object();
 
         private Config()
         {
@@ -26,27 +26,25 @@ namespace RailsLocalesAuxilium.Sources
 
         private static void Read()
         {
-            if (File.Exists(filename))
+            if (!File.Exists(Filename)) { return; }
+            lock (SerializerLock)
             {
-                lock (_serLock)
+                using (var s = new FileStream(Filename, FileMode.Open, FileAccess.Read))
                 {
-                    using (var s = new FileStream(filename, FileMode.Open, FileAccess.Read))
-                    {
-                        _instance = (Config)_ser.Deserialize(s);
-                    }
+                    _instance = (Config)_ser.Deserialize(s);
                 }
             }
         }
 
         private static void Write()
         {
-            lock (_serLock)
+            lock (SerializerLock)
             {
                 if (_instance == null)
                 {
                     _instance = new Config();
                 }
-                using (var s = new FileStream(filename, FileMode.Create, FileAccess.Write))
+                using (var s = new FileStream(Filename, FileMode.Create, FileAccess.Write))
                 {
                     _ser.Serialize(s, _instance);
                 }

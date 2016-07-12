@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sources\Config.cs" />
+    <Compile Include="Sources\FileHelper.cs" />
     <Compile Include="Sources\Project.cs" />
     <Compile Include="Sources\ProjectCommands.cs" />
     <Compile Include="StartPage.xaml.cs">
@@ -222,7 +223,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Sources\ProjectData\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
