@@ -72,6 +72,7 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Sources\Config.cs" />
     <Compile Include="Sources\Project.cs" />
+    <Compile Include="Sources\ProjectCommands.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>

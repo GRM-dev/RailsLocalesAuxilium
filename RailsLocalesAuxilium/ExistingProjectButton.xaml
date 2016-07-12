@@ -8,7 +8,7 @@
              d:DesignHeight="150" d:DesignWidth="150" d:DataContext="{d:DesignInstance local:ExistingProjectButton}" 
              MinWidth="150" MinHeight="150" UseLayoutRounding="True" 
              ScrollViewer.VerticalScrollBarVisibility="Disabled">
-    <Button x:Name="ExistingProjectButton1" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsDefault="True" Command="{Binding OpenProjectCommand}">
+    <Button x:Name="EProjectButton" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" IsDefault="True" Command="{Binding OpenProjectCommand}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />

@@ -23,19 +23,20 @@ namespace RailsLocalesAuxilium
     /// </summary>
     public partial class MainPage : Page
     {
+
         public MainPage()
         {
-            InitializeComponent();
             Instance = this;
+            InitializeComponent();
         }
-        
+
         public void OnNavigatedTo()
         {
-            
+
         }
 
 
-        public void OpenProject(Project project=null)
+        public void OpenProject(Project project = null)
         {
             if (project != null)
             {
@@ -49,7 +50,6 @@ namespace RailsLocalesAuxilium
         }
 
         public Project Project { get; set; }
-
         public static MainPage Instance { get; private set; }
-        }
+    }
 }

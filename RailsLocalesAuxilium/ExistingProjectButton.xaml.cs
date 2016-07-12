@@ -25,6 +25,7 @@ namespace RailsLocalesAuxilium
     /// </summary>
     public partial class ExistingProjectButton : UserControl, INotifyPropertyChanged
     {
+        private static int BtnId = 1;
         private string _buttonText = "Project";
         private ICommand _openProjectCommand;
         private bool _canExecute;
@@ -38,20 +39,18 @@ namespace RailsLocalesAuxilium
         public ExistingProjectButton(Project project) : this()
         {
             Project = project;
+            Name = project.Name + "_" + BtnId++;
             ButtonText = project.Name;
             _canExecute = project.Path != null;
         }
-
-        public Project Project { get; set; }
-
-
-        public ICommand OpenProjectCommand => _openProjectCommand ?? (_openProjectCommand = new CommandHandler(OpenProject, _canExecute));
-
+        
         private void OpenProject()
         {
             MainPage.Instance.OpenProject(Project);
         }
 
+        public Project Project { get; set; }
+        public ICommand OpenProjectCommand => _openProjectCommand ?? (_openProjectCommand = new CommandHandler(OpenProject, _canExecute));
         public string ButtonText
         {
             get { return _buttonText; }
