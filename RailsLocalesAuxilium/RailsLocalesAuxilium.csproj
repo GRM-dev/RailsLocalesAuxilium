@@ -74,6 +74,9 @@
     <Compile Include="ProjectPages\LayoutPage.xaml.cs">
       <DependentUpon>LayoutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectPages\MailerPage.xaml.cs">
+      <DependentUpon>MailerPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProjectPages\ModelPage.xaml.cs">
       <DependentUpon>ModelPage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProjectPages\LayoutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProjectPages\MailerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

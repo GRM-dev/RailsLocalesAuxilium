@@ -36,6 +36,12 @@ namespace RailsLocalesAuxilium.Sources
             ProjectPage.NavigateTo(typeof(ViewPage));
         }, CanExecute, MainPage.Instance, typeof(ViewPage));
 
+        public static ICommand MailerCommand = CommandHandler.CreateHandlerWithBinding(() =>
+        {
+            Debug.WriteLine("Opening View Page");
+            ProjectPage.NavigateTo(typeof(MailerPage));
+        }, CanExecute, MainPage.Instance, typeof(MailerPage));
+
         public static ICommand LayoutCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening View Page");
@@ -57,9 +63,7 @@ namespace RailsLocalesAuxilium.Sources
         private static bool CanExecute(object o, CanExecuteRoutedEventArgs e)
         {
             var target = e.Source as Button;
-            var r1 = target != null && o != null;
-            var r2 = MainPage.Instance != null;
-            if (!r1 || !r2) { return false; }
+            if ((target == null || o == null) || MainPage.Instance == null) { return false; }
             ProjectPage pp;
             if ((pp = MainPage.Instance.CurrentPage) == null) { return true; }
             if (e.Command.GetType() != typeof(RoutedCommand)) { return true; }

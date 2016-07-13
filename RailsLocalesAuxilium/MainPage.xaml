@@ -21,11 +21,12 @@
                 <Button Content="Languages"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LanguageCommand}"/>
                 <Expander Header="Common">
                     <StackPanel>
-                        <Button Content="Model" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
+                        <Button Content="Models" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
                         <Button Content="Attributes" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.AttributesCommand}"/>
                         <Button Content="Controllers" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ControllerCommand}"/>
                         <Button Content="Layouts" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LayoutCommand}"/>
-                        <Button Content="View" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ViewCommand}"/>
+                        <Button Content="Views" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ViewCommand}"/>
+                        <Button Content="Mailers" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.MailerCommand}"/>
                         <Button Content="Other" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.OtherCommand}"/>
                     </StackPanel>
                 </Expander>
