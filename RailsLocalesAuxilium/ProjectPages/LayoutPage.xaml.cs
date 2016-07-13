@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RailsLocalesAuxilium.ProjectPages
 {
     /// <summary>
-    /// Interaction logic for ViewPage.xaml
+    /// Interaction logic for LayoutPage.xaml
     /// </summary>
-    public partial class ViewPage : ProjectPage
+    public partial class LayoutPage : ProjectPage
     {
-        public ViewPage()
+        public LayoutPage()
         {
             InitializeComponent();
         }

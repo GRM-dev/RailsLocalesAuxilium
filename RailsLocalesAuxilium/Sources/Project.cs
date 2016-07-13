@@ -11,17 +11,17 @@ namespace RailsLocalesAuxilium.Sources
     {
         public string Name { get; set; }
         public string Path { get; set; }
-        public List<string> Files { get; set; }
+        public List<string> LocaleFiles { get; set; }
 
         public Project()
         {
         }
 
-        private Project(string name, string path, List<string> files) : this()
+        private Project(string name, string path, List<string> localeFiles) : this()
         {
             Name = name;
             Path = path;
-            Files = files;
+            LocaleFiles = localeFiles;
         }
 
         public static Project CreateProject(string name, string path)

@@ -49,9 +49,6 @@ namespace RailsLocalesAuxilium
             }
         }
 
-        public Project Project { get; private set; }
-        public static MainPage Instance { get; private set; }
-
         public void NavigateToPage(ProjectPage page)
         {
             if (page == null)
@@ -59,6 +56,11 @@ namespace RailsLocalesAuxilium
                 return;
             }
             ProjectFrame.Navigate(page);
+            CurrentPage = page;
         }
+
+        public Project Project { get; private set; }
+        public static MainPage Instance { get; private set; }
+        public ProjectPage CurrentPage { get; set; }
     }
 }

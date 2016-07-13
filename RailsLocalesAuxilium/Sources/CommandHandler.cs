@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using RailsLocalesAuxilium.ProjectPages;
 
 namespace RailsLocalesAuxilium.Sources
 {
@@ -36,21 +37,41 @@ namespace RailsLocalesAuxilium.Sources
             _action();
         }
 
-        public static RoutedCommand CreateHandlerWithBinding(Action action, Func<object, CanExecuteRoutedEventArgs, bool> canExecute, FrameworkElement assignableElement)
+        public static RoutedCommand CreateHandlerWithBinding(Action action, Func<object, CanExecuteRoutedEventArgs, bool> canExecute, FrameworkElement assignableElement, object parameters = null)
         {
-            var routedCommand = new RoutedCommand();
+            RoutedCommand routedCommand = null;
+            if (parameters != null)
+            {
+                var paramType= parameters.GetType();
+                if (paramType.IsClass)
+                {
+                    if (parameters is Type)
+                    {
+                        paramType = parameters as Type;
+                        if (paramType.IsSubclassOf(typeof (ProjectPage)))
+                        {
+                            routedCommand = new RoutedCommand(paramType.Name, typeof (MainPage));
+                        }
+                    }
+                }
+            }
+            if (routedCommand == null)
+            {
+                routedCommand = new RoutedCommand();
+            }
             var cb = new CommandBinding(routedCommand, (sender, e) =>
             {
                 action();
-            } , (sender, e) =>
-            {
-                var target = e.Source as Control;
-                e.CanExecute = target != null && canExecute(sender,e);
-            });
+            }, (sender, e) =>
+           {
+               var target = e.Source as Control;
+               e.CanExecute = target != null && canExecute(sender, e);
+           });
             assignableElement.CommandBindings.Add(cb);
+
             return routedCommand;
         }
-        
+
         public event EventHandler CanExecuteChanged;
     }
 }

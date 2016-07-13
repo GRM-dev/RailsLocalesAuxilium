@@ -9,7 +9,7 @@
       Title="ModelPage">
 
     <DockPanel>
-        <DataGrid></DataGrid>
+        <DataGrid ></DataGrid>
 
     </DockPanel>
 </local:ProjectPage>

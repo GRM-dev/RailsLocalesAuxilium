@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RailsLocalesAuxilium"
         mc:Ignorable="d"
-        Title="Rails Locales Auxilium" Height="600" Width="800" Icon="Resources/RubyOnRails.png">
+        Title="Rails Locales Auxilium" Height="600" Width="800" Icon="Resources/RubyOnRails.png" MinWidth="400" MinHeight="300">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.7,1" StartPoint="0,0">
             <GradientStop Color="#FF1D0808" Offset="1"/>

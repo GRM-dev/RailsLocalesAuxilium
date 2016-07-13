@@ -1,4 +1,4 @@
-﻿<local:ProjectPage x:Class="RailsLocalesAuxilium.ProjectPages.ViewPage"
+﻿<local:ProjectPage x:Class="RailsLocalesAuxilium.ProjectPages.LayoutPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RailsLocalesAuxilium.ProjectPages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="ViewPage">
+      Title="LayoutPage">
 
     <Grid>
         

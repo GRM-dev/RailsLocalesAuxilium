@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RailsLocalesAuxilium"
       xmlns:sources="clr-namespace:RailsLocalesAuxilium.Sources"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="500"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="MainPage">
 
     <DockPanel>
@@ -15,15 +15,29 @@
             <MenuItem Header="Edit" ></MenuItem>
             <MenuItem Header="Project" ></MenuItem>
         </Menu>
-        <StackPanel DockPanel.Dock="Left" Background="#FF250E0E" MinWidth="65">
-            <Label Content="Translations: " FontWeight="Bold" MinHeight="23" HorizontalContentAlignment="Center"/>
-            <Button x:Name="PB_Model" Content="Model" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
-            <Button x:Name="PB_Attr" Content="Attributes"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.AttributesCommand}"/>
-            <Button x:Name="PB_Cont" Content="Controllers"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ControllerCommand}"/>
-            <Button x:Name="PB_View" Content="View"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ViewCommand}"/>
-            <Button x:Name="PB_Lang" Content="Language"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LanguageCommand}"/>
-            <Button x:Name="PB_Other" Content="Other"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.OtherCommand}"/>
-        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" MinWidth="110">
+            <StackPanel DockPanel.Dock="Left" Background="#FF250E0E" MinWidth="65">
+                <Label Content="Translations: " FontWeight="Bold" MinHeight="23" HorizontalContentAlignment="Center"/>
+                <Button Content="Languages"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LanguageCommand}"/>
+                <Expander Header="Common">
+                    <StackPanel>
+                        <Button Content="Model" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
+                        <Button Content="Attributes" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.AttributesCommand}"/>
+                        <Button Content="Controllers" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ControllerCommand}"/>
+                        <Button Content="Layouts" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LayoutCommand}"/>
+                        <Button Content="View" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.ViewCommand}"/>
+                        <Button Content="Other" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.OtherCommand}"/>
+                    </StackPanel>
+                </Expander>
+                <Expander Header="All">
+                    <StackPanel>
+                        <Button Content="As Text" Style="{DynamicResource ProjectMainButton}"/>
+                        <Button Content="As Table" Style="{DynamicResource ProjectMainButton}"/>
+                        <Button Content="As List" Style="{DynamicResource ProjectMainButton}"/>
+                    </StackPanel>
+                </Expander>
+            </StackPanel>
+        </ScrollViewer>
         <Frame x:Name="ProjectFrame"/>
     </DockPanel>
 </Page>

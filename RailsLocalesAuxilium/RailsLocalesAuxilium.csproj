@@ -71,6 +71,9 @@
     <Compile Include="ProjectPages\LanguagePage.xaml.cs">
       <DependentUpon>LanguagePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProjectPages\LayoutPage.xaml.cs">
+      <DependentUpon>LayoutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProjectPages\ModelPage.xaml.cs">
       <DependentUpon>ModelPage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +96,11 @@
     <Compile Include="Sources\FileHelper.cs" />
     <Compile Include="Sources\Project.cs" />
     <Compile Include="Sources\ProjectCommands.cs" />
+    <Compile Include="Sources\ProjectData\Attributes.cs" />
+    <Compile Include="Sources\ProjectData\Layout.cs" />
+    <Compile Include="Sources\ProjectData\Locale.cs" />
+    <Compile Include="Sources\ProjectData\Model.cs" />
+    <Compile Include="Sources\ProjectData\Translation.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
@@ -125,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProjectPages\LanguagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProjectPages\LayoutPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,9 +235,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Sources\ProjectData\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
