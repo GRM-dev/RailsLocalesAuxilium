@@ -34,6 +34,12 @@ namespace RailsLocalesAuxilium.Sources
             return GetListOfFilesInDir(path + "\\app\\views\\layouts", ".rb");
         }
 
+        public static List<string> GetFileNames(string path, Func<string, List<string>> method)
+        {
+            var r = method(path);
+            return r.Select(Path.GetFileName).Where(filename => !string.IsNullOrWhiteSpace(filename)).ToList();
+        }
+
         private static List<string> GetListOfFilesInDir(string path, string fileType = ".", bool recursive = true)
         {
             IEnumerable<string> content;
@@ -46,6 +52,11 @@ namespace RailsLocalesAuxilium.Sources
                 content = Directory.EnumerateFiles(path);
             }
             return content.Where(file => file.Contains(fileType)).ToList();
+        }
+
+        public static FileStream GetLocaleFile(string path, string fileName)
+        {
+            return new FileStream(path + "\\config\\locales\\" + fileName + ".yml", FileMode.Open, FileAccess.Read);
         }
     }
 }

@@ -19,7 +19,7 @@
             <StackPanel DockPanel.Dock="Left" Background="#FF250E0E" MinWidth="65">
                 <Label Content="Translations: " FontWeight="Bold" MinHeight="23" HorizontalContentAlignment="Center"/>
                 <Button Content="Languages"  Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.LanguageCommand}"/>
-                <Expander Header="Common">
+                <Expander Header="Common" IsExpanded="True">
                     <StackPanel>
                         <Button Content="Models" Style="{DynamicResource ProjectMainButton}" IsDefault="True" Command="{x:Static sources:ProjectCommands.ModelCommand}"/>
                         <Button Content="Attributes" Style="{DynamicResource ProjectMainButton}" Command="{x:Static sources:ProjectCommands.AttributesCommand}"/>

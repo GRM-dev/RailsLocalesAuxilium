@@ -6,10 +6,29 @@
       xmlns:local="clr-namespace:RailsLocalesAuxilium.ProjectPages"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="ModelPage">
-
+      Title="ModelPage" d:DataContext="{d:DesignInstance local:ModelPage}">
     <DockPanel>
-        <DataGrid ></DataGrid>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="Add New Model" FontSize="16"/>
+            <Button Content="Copy translations ..." FontSize="16"/>
+        </StackPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <TreeView x:Name="ModelsTree">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Path=TranslationCollection}">
 
+                        <Grid Background="LightSkyBlue"  Margin="2" Width="100" Height="24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Margin="2" Text="{Binding Path=Name}" VerticalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" />
+                            <TextBlock Margin="2" Text="{Binding Path=Code}" VerticalAlignment="Center" FontWeight="Bold" />
+                            <TextBox Margin="2" Text="{Binding Path=TranslatedString}" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="1" />
+                        </Grid>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </ScrollViewer>
     </DockPanel>
 </local:ProjectPage>

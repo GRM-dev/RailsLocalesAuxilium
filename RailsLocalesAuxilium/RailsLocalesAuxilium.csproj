@@ -104,6 +104,7 @@
     <Compile Include="Sources\ProjectData\Locale.cs" />
     <Compile Include="Sources\ProjectData\Model.cs" />
     <Compile Include="Sources\ProjectData\Translation.cs" />
+    <Compile Include="Sources\YamlParser.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
