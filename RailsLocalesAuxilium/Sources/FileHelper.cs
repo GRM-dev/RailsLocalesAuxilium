@@ -54,9 +54,9 @@ namespace RailsLocalesAuxilium.Sources
             return content.Where(file => file.Contains(fileType)).ToList();
         }
 
-        public static FileStream GetLocaleFile(string path, string fileName)
+        public static FileStream GetLocaleFile(string localeFilePath)
         {
-            return new FileStream(path + "\\config\\locales\\" + fileName + ".yml", FileMode.Open, FileAccess.Read);
+            return new FileStream(localeFilePath, FileMode.Open, FileAccess.Read);
         }
     }
 }

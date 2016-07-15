@@ -15,49 +15,49 @@ namespace RailsLocalesAuxilium.Sources
         public static ICommand ModelCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening Model Page");
-            ProjectPage.NavigateTo(typeof(ModelPage));
+            ProjectPage.NavigateToProjectPage(typeof(ModelPage));
         }, CanExecute, MainPage.Instance, typeof(ModelPage));
 
         public static ICommand AttributesCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening Attribute Page");
-            ProjectPage.NavigateTo(typeof(AttributePage));
+            ProjectPage.NavigateToProjectPage(typeof(AttributePage));
         }, CanExecute, MainPage.Instance, typeof(AttributePage));
 
         public static ICommand ControllerCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening Controller Page");
-            ProjectPage.NavigateTo(typeof(ControllerPage));
+            ProjectPage.NavigateToProjectPage(typeof(ControllerPage));
         }, CanExecute, MainPage.Instance, typeof(ControllerPage));
 
         public static ICommand ViewCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening View Page");
-            ProjectPage.NavigateTo(typeof(ViewPage));
+            ProjectPage.NavigateToProjectPage(typeof(ViewPage));
         }, CanExecute, MainPage.Instance, typeof(ViewPage));
 
         public static ICommand MailerCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening View Page");
-            ProjectPage.NavigateTo(typeof(MailerPage));
+            ProjectPage.NavigateToProjectPage(typeof(MailerPage));
         }, CanExecute, MainPage.Instance, typeof(MailerPage));
 
         public static ICommand LayoutCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening View Page");
-            ProjectPage.NavigateTo(typeof(LayoutPage));
+            ProjectPage.NavigateToProjectPage(typeof(LayoutPage));
         }, CanExecute, MainPage.Instance, typeof(LayoutPage));
 
         public static ICommand LanguageCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening Language Page");
-            ProjectPage.NavigateTo(typeof(LanguagePage));
+            ProjectPage.NavigateToProjectPage(typeof(LanguagePage));
         }, CanExecute, MainPage.Instance, typeof(LanguagePage));
 
         public static ICommand OtherCommand = CommandHandler.CreateHandlerWithBinding(() =>
         {
             Debug.WriteLine("Opening Other Page");
-            ProjectPage.NavigateTo(typeof(OtherPage));
+            ProjectPage.NavigateToProjectPage(typeof(OtherPage));
         }, CanExecute, MainPage.Instance, typeof(OtherPage));
 
         private static bool CanExecute(object o, CanExecuteRoutedEventArgs e)

@@ -104,6 +104,9 @@
     <Compile Include="Sources\ProjectData\Locale.cs" />
     <Compile Include="Sources\ProjectData\Model.cs" />
     <Compile Include="Sources\ProjectData\Translation.cs" />
+    <Compile Include="Sources\ProjectData\TranslationUI.xaml.cs">
+      <DependentUpon>TranslationUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sources\YamlParser.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProjectPages\ViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sources\ProjectData\TranslationUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

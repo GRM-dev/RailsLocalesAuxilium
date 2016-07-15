@@ -33,7 +33,11 @@ namespace RailsLocalesAuxilium
 
         public void OnNavigatedTo()
         {
-
+            if (Project == null)
+            {
+                return;
+            }
+            Project.Load();
         }
         
         public void OpenProject(Project project = null)
@@ -49,7 +53,7 @@ namespace RailsLocalesAuxilium
             }
         }
 
-        public void NavigateToPage(ProjectPage page)
+        public void NavigateToProjectPage(ProjectPage page)
         {
             if (page == null)
             {
@@ -57,10 +61,11 @@ namespace RailsLocalesAuxilium
             }
             ProjectFrame.Navigate(page);
             CurrentPage = page;
+            page.OnNavigatedTo();
         }
 
         public Project Project { get; private set; }
         public static MainPage Instance { get; private set; }
-        public ProjectPage CurrentPage { get; set; }
+        public ProjectPage CurrentPage { get; private set; }
     }
 }

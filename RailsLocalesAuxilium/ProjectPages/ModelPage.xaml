@@ -13,22 +13,8 @@
             <Button Content="Copy translations ..." FontSize="16"/>
         </StackPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <TreeView x:Name="ModelsTree">
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Path=TranslationCollection}">
-
-                        <Grid Background="LightSkyBlue"  Margin="2" Width="100" Height="24">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Margin="2" Text="{Binding Path=Name}" VerticalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" />
-                            <TextBlock Margin="2" Text="{Binding Path=Code}" VerticalAlignment="Center" FontWeight="Bold" />
-                            <TextBox Margin="2" Text="{Binding Path=TranslatedString}" VerticalAlignment="Center" FontWeight="Bold" Grid.Column="1" />
-                        </Grid>
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+            <StackPanel x:Name="ModelsTree">
+            </StackPanel>
         </ScrollViewer>
     </DockPanel>
 </local:ProjectPage>

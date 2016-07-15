@@ -27,7 +27,7 @@ namespace RailsLocalesAuxilium.ProjectPages
 
         public abstract void OnNavigatedTo();
 
-        public static void NavigateTo(Type type)
+        public static void NavigateToProjectPage(Type type)
         {
             if (type == null || !type.IsSubclassOf(typeof(ProjectPage)) || MainPage.Instance == null || !ProjectPages.ContainsKey(type))
             {
@@ -38,9 +38,8 @@ namespace RailsLocalesAuxilium.ProjectPages
                 CurrentProject = MainPage.Instance.Project;
             }
             var p = ProjectPages[type];
-            MainPage.Instance.NavigateToPage(p);
-            p.OnNavigatedTo();
-        }
+            MainPage.Instance.NavigateToProjectPage(p);
+            }
 
         private static Dictionary<Type, ProjectPage> ProjectPages
         {
